@@ -1,11 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import MainNavigation from "../components/MainNavigation";
 
 const LayoutPage = () => {
     return (
-        <div>
-            <Outlet />
-        </div>
+        <>
+            <MainNavigation />
+            <main>
+                <Outlet />
+            </main>
+        </>
     );
 };
 
