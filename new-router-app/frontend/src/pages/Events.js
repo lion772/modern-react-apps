@@ -4,9 +4,7 @@ import { useLoaderData, json } from "react-router-dom";
 function EventsPage() {
     const data = useLoaderData();
     const events = data.events;
-    if (data.error) {
-        return <p>{data.message}</p>;
-    }
+
     return (
         <>
             <EventsList events={events} />
