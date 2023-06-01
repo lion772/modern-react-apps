@@ -11,7 +11,7 @@ const ErrorPage = () => {
 
     switch (error.status) {
         case 500:
-            message = JSON.parse(error.data).message;
+            message = error.data.message;
             break;
         case 404:
             message = "Could not find resource or page.";
