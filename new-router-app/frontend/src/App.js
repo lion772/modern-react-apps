@@ -1,7 +1,6 @@
+import React, { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayoutPage from "./pages/RootLayout";
-import HomePage from "./pages/Home";
-import EventsPage, { loader as eventsLoader } from "./pages/Events";
 import EventDetailPage, {
     loader as eventDetailLoader,
     action as deleteEventAction,
@@ -13,21 +12,38 @@ import ErrorPage from "./pages/Error";
 import { action as postPatchEventAction } from "./components/EventForm";
 import NewsletterPage, { action as newsletterAction } from "./pages/Newsletter";
 
+const HomePage = lazy(() => import("./pages/Home"));
+const EventsPage = lazy(() => import("./pages/Events"));
+
 const router = createBrowserRouter([
     {
         path: "/",
         element: <RootLayoutPage />,
         errorElement: <ErrorPage />,
         children: [
-            { index: true, element: <HomePage /> },
+            {
+                index: true,
+                element: (
+                    <Suspense fallback={<p>loading</p>}>
+                        <HomePage />
+                    </Suspense>
+                ),
+            },
             {
                 path: "events",
                 element: <EventsRootLayoutPage />,
                 children: [
                     {
                         index: true,
-                        element: <EventsPage />,
-                        loader: eventsLoader,
+                        element: (
+                            <Suspense fallback={<p>loading</p>}>
+                                <EventsPage />
+                            </Suspense>
+                        ),
+                        loader: () =>
+                            import("./pages/Events").then((mod) =>
+                                mod.loader()
+                            ),
                     },
                     {
                         path: ":eventId",
