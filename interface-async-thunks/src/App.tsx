@@ -1,11 +1,12 @@
 import React from "react";
 import "./index.css";
 import "./App.css";
+import UsersList from "./components/UsersList";
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">Hello World!</header>
+        <div className="container mx-auto">
+            <UsersList />
         </div>
     );
 }
