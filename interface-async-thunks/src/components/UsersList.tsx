@@ -18,12 +18,11 @@ const UsersList: FC = (): JSX.Element => {
         setIsLoadingUsers(true);
         dispatch<any>(fetchUsers())
             .unwrap()
-            .then(() => setIsLoadingUsers(false))
-            .catch(() =>
-                setLoadingUsersError(
-                    "Something went wrong. Error fetching data."
-                )
-            );
+            .then(() => {})
+            .catch((err: any) =>
+                setLoadingUsersError(`An error occured: ${err.code}`)
+            )
+            .finally(() => setIsLoadingUsers(false));
     }, [dispatch]);
 
     const handleUserAdd = () => {
