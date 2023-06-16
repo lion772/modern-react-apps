@@ -13,7 +13,7 @@ const UsersList: FC = (): JSX.Element => {
 
     let result = <div></div>;
     if (isLoading) {
-        result = <Skeleton times={6} />;
+        result = <Skeleton times={6} className="h-10 w-full" />;
     }
     if (data && data.length > 0) {
         result = (
