@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, addUser } from "../store";
 import Skeleton from "./Skeleton";
@@ -6,15 +6,24 @@ import Button from "./Button";
 import { User } from "./User";
 
 const UsersList: FC = (): JSX.Element => {
+    const [isLoadingUsers, setIsLoadingUsers] = useState<boolean>(false);
+    const [loadingUsersError, setLoadingUsersError] = useState<string | null>(
+        null
+    );
     const dispatch = useDispatch();
-    const {
-        isLoading,
-        data: usersList,
-        error,
-    } = useSelector((state: any) => state.users);
+
+    const { data: usersList } = useSelector((state: any) => state.users);
 
     useEffect(() => {
-        dispatch<any>(fetchUsers());
+        setIsLoadingUsers(true);
+        dispatch<any>(fetchUsers())
+            .unwrap()
+            .then(() => setIsLoadingUsers(false))
+            .catch(() =>
+                setLoadingUsersError(
+                    "Something went wrong. Error fetching data."
+                )
+            );
     }, [dispatch]);
 
     const handleUserAdd = () => {
@@ -22,7 +31,7 @@ const UsersList: FC = (): JSX.Element => {
     };
 
     let result = <div></div>;
-    if (isLoading) {
+    if (isLoadingUsers) {
         result = <Skeleton times={6} className="h-10 w-full" />;
     }
     if (usersList && usersList.length > 0) {
@@ -38,8 +47,8 @@ const UsersList: FC = (): JSX.Element => {
             </ul>
         );
     }
-    if (error) {
-        result = <div>Something went wrong. Error fetching data.</div>;
+    if (loadingUsersError) {
+        result = <div>{loadingUsersError}</div>;
     }
 
     return (
