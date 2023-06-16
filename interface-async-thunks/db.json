@@ -1,9 +1,30 @@
 {
-    "users": [
-        { "id": 1, "name": "Myra" },
-        { "id": 2, "name": "John" },
-        { "id": 3, "name": "Bryan" }
-    ],
-    "albums": [],
-    "photos": []
+  "users": [
+    {
+      "id": 1,
+      "name": "Myra"
+    },
+    {
+      "id": 2,
+      "name": "John"
+    },
+    {
+      "id": 3,
+      "name": "Bryan"
+    },
+    {
+      "name": "Lila Kuvalis I",
+      "id": 4
+    },
+    {
+      "name": "Robyn Kuhic",
+      "id": 5
+    },
+    {
+      "name": "Rachael Emmerich",
+      "id": 6
+    }
+  ],
+  "albums": [],
+  "photos": []
 }

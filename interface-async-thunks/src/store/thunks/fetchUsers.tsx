@@ -7,7 +7,7 @@ export const fetchUsers = createAsyncThunk(
         try {
             // Perform an async operation here (e.g., API request)
             const response = await axios.get("http://localhost:3005/users");
-            return await response.data;
+            return response.data;
         } catch (error: any) {
             // Handle errors
             return thunkAPI.rejectWithValue(error.message);
