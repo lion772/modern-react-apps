@@ -1,77 +1,52 @@
-import { FC, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { FC, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { fetchUsers, addUser } from "../store";
 import Skeleton from "./Skeleton";
 import Button from "./Button";
 import { User } from "./User";
+import useThunk from "../hook/useThunk";
 
 const UsersList: FC = (): JSX.Element => {
-    const [isLoadingUsers, setIsLoadingUsers] = useState<boolean>(false);
-    const [loadingUsersError, setLoadingUsersError] = useState<string | null>(
-        null
-    );
-    const [isCreatingUser, setIsCreatingUser] = useState<boolean>(false);
-    const [creatingUserError, setCreatingUserError] = useState<string | null>(
-        null
-    );
-    const dispatch = useDispatch();
-    const { data: usersList } = useSelector((state: any) => state.users);
+    const [isLoadingUsers, errorUsers, fetchUsersList] = useThunk(fetchUsers);
+    const [isCreatingUser, errorAddUser, addNewUser] = useThunk(addUser);
+
+    const { data } = useSelector((state: any) => state.users);
 
     useEffect(() => {
-        setIsLoadingUsers(true);
-        dispatch<any>(fetchUsers())
-            .unwrap()
-            .then(() => {})
-            .catch((err: any) =>
-                setLoadingUsersError(`An error occured: ${err.code}`)
-            )
-            .finally(() => setIsLoadingUsers(false));
-    }, [dispatch]);
+        fetchUsersList();
+    }, [fetchUsersList]);
 
     const handleUserAdd = () => {
-        setIsCreatingUser(true);
-        dispatch<any>(addUser())
-            .unwrap()
-            .then(() => {})
-            .catch((err: any) =>
-                setCreatingUserError(`An error occured: ${err.code}`)
-            )
-            .finally(() => setIsCreatingUser(false));
+        addNewUser();
     };
 
-    let result = <div></div>;
+    let content = <></>;
     if (isLoadingUsers) {
-        result = <Skeleton times={6} className="h-10 w-full" />;
-    }
-    if (usersList && usersList.length > 0) {
-        result = (
-            <ul>
-                {usersList.map((user: User) => (
-                    <li key={user.id} className="mb-2 border rounded">
-                        <p className="flex p-2 justify-between items-center cursor-pointer">
-                            {user.name}
-                        </p>
-                    </li>
-                ))}
-            </ul>
-        );
-    }
-    if (loadingUsersError) {
-        result = <div>{loadingUsersError}</div>;
+        content = <Skeleton times={6} className="h-10 w-full" />;
+    } else if (errorUsers) {
+        content = <div>{errorUsers}</div>;
+    } else {
+        content = data.map((user: User) => (
+            <div key={user.id} className="mb-2 border rounded">
+                <p className="flex p-2 justify-between items-center cursor-pointer">
+                    {user.name}
+                </p>
+            </div>
+        ));
     }
 
     return (
         <>
-            <div className="flex flex-row justify-between m-3">
-                <h1 className="m2 text-xl">Users</h1>
+            <div className="flex flex-row justify-between items-center m-3">
+                <h1 className="m-2 text-xl">Users</h1>
                 {isCreatingUser ? (
                     "Creating user..."
                 ) : (
                     <Button onClick={handleUserAdd}>+ Add User</Button>
                 )}
-                {creatingUserError && <p>{creatingUserError}</p>}
+                {errorAddUser && <p>{errorAddUser}</p>}
             </div>
-            {result}
+            {content}
         </>
     );
 };
