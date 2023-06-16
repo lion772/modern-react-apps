@@ -1,6 +1,7 @@
 import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../store";
+import Skeleton from "./Skeleton";
 
 const UsersList: FC = (): JSX.Element => {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const UsersList: FC = (): JSX.Element => {
 
     let result = <div></div>;
     if (isLoading) {
-        result = <div>Loading...</div>;
+        result = <Skeleton times={6} />;
     }
     if (data && data.length > 0) {
         result = (
