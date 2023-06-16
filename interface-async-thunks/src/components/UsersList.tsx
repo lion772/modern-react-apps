@@ -10,8 +10,11 @@ const UsersList: FC = (): JSX.Element => {
     const [loadingUsersError, setLoadingUsersError] = useState<string | null>(
         null
     );
+    const [isCreatingUser, setIsCreatingUser] = useState<boolean>(false);
+    const [creatingUserError, setCreatingUserError] = useState<string | null>(
+        null
+    );
     const dispatch = useDispatch();
-
     const { data: usersList } = useSelector((state: any) => state.users);
 
     useEffect(() => {
@@ -26,7 +29,14 @@ const UsersList: FC = (): JSX.Element => {
     }, [dispatch]);
 
     const handleUserAdd = () => {
-        dispatch<any>(addUser());
+        setIsCreatingUser(true);
+        dispatch<any>(addUser())
+            .unwrap()
+            .then(() => {})
+            .catch((err: any) =>
+                setCreatingUserError(`An error occured: ${err.code}`)
+            )
+            .finally(() => setIsCreatingUser(false));
     };
 
     let result = <div></div>;
@@ -54,7 +64,12 @@ const UsersList: FC = (): JSX.Element => {
         <>
             <div className="flex flex-row justify-between m-3">
                 <h1 className="m2 text-xl">Users</h1>
-                <Button onClick={handleUserAdd}>+ Add User</Button>
+                {isCreatingUser ? (
+                    "Creating user..."
+                ) : (
+                    <Button onClick={handleUserAdd}>+ Add User</Button>
+                )}
+                {creatingUserError && <p>{creatingUserError}</p>}
             </div>
             {result}
         </>
