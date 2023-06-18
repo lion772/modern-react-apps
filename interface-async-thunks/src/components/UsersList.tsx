@@ -17,10 +17,6 @@ const UsersList: FC = (): JSX.Element => {
         fetchUsersList();
     }, [fetchUsersList]);
 
-    const handleUserAdd = () => {
-        addNewUser();
-    };
-
     let content = <></>;
     if (isLoadingUsers) {
         content = <Skeleton times={6} className="h-10 w-full" />;
@@ -28,11 +24,7 @@ const UsersList: FC = (): JSX.Element => {
         content = <div>{errorUsers}</div>;
     } else {
         content = data.map((user: User) => (
-            <div key={user.id} className="mb-2 border rounded">
-                <p className="flex p-2 justify-between items-center cursor-pointer">
-                    <UsersListItem user={user} />
-                </p>
-            </div>
+            <UsersListItem key={user.id} user={user} />
         ));
     }
 
@@ -40,7 +32,7 @@ const UsersList: FC = (): JSX.Element => {
         <>
             <div className="flex flex-row justify-between items-center m-3">
                 <h1 className="m-2 text-xl">Users</h1>
-                <Button loading={isCreatingUser} onClick={handleUserAdd}>
+                <Button loading={isCreatingUser} onClick={addNewUser}>
                     + Add User
                 </Button>
                 {errorAddUser && <p>{errorAddUser}</p>}

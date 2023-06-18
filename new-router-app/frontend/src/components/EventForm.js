@@ -103,7 +103,6 @@ export async function action({ request, params }) {
         const eventId = params.eventId;
         url = url + `/${eventId}`;
     }
-    console.log(url);
     const response = await fetch(url, {
         method: method,
         headers: {

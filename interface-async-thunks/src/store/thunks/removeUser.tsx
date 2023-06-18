@@ -5,9 +5,7 @@ import { User } from "../../components/User";
 export const removeUser = createAsyncThunk(
     "users/remove",
     async (user: User) => {
-        const response = await axios.post(
-            `http://localhost:3005/users/${user.id}`
-        );
-        return response.data;
+        await axios.delete(`http://localhost:3005/users/${user.id}`);
+        return user;
     }
 );

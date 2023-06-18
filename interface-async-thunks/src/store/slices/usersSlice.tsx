@@ -2,10 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchUsers } from "../thunks/fetchUsers";
 import { addUser } from "../thunks/addUser";
 import { removeUser } from "../thunks/removeUser";
+import { User } from "../../components/User";
 
 // Define the interface for the initial state
 interface UserState {
-    data: any[];
+    data: User[];
     isLoading: boolean;
     error: any;
 }
@@ -43,8 +44,9 @@ const usersSlice = createSlice({
         });
         builder.addCase(removeUser.fulfilled, (state, action) => {
             state.isLoading = false;
-            //state.data = [...state.data, action.payload];
-            console.log(action);
+            state.data = state.data.filter(
+                (i: User) => i.id !== action.payload.id
+            );
         });
 
         // Handle the rejected state
