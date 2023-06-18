@@ -5,6 +5,7 @@ import Button from "./Button";
 import { removeUser } from "../store";
 import useThunk from "../hook/useThunk";
 import ExpandablePanel from "./ExpandablePanel";
+import AlbunsList from "./AlbunsList";
 
 interface UsersListItemInt {
     user: User;
@@ -28,7 +29,7 @@ const UsersListItem: FC<UsersListItemInt> = ({ user }) => {
     );
     return (
         <ExpandablePanel header={header}>
-            <div>Content</div>
+            <AlbunsList user={user} />
         </ExpandablePanel>
     );
 };
