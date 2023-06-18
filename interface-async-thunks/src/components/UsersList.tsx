@@ -5,6 +5,7 @@ import Skeleton from "./Skeleton";
 import Button from "./Button";
 import { User } from "./User";
 import useThunk from "../hook/useThunk";
+import UsersListItem from "./UsersListItem";
 
 const UsersList: FC = (): JSX.Element => {
     const [isLoadingUsers, errorUsers, fetchUsersList] = useThunk(fetchUsers);
@@ -29,7 +30,7 @@ const UsersList: FC = (): JSX.Element => {
         content = data.map((user: User) => (
             <div key={user.id} className="mb-2 border rounded">
                 <p className="flex p-2 justify-between items-center cursor-pointer">
-                    {user.name}
+                    <UsersListItem user={user} />
                 </p>
             </div>
         ));

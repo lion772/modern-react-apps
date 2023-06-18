@@ -8,7 +8,7 @@ const useThunk = (thunk: any) => {
     const dispatch = useDispatch();
 
     const runThunk = useCallback(
-        (arg: string) => {
+        (arg: any) => {
             setIsLoading(true);
             dispatch<any>(thunk(arg))
                 .unwrap()
