@@ -1,17 +1,15 @@
 import { FC } from "react";
 import { User } from "./User";
 import AlbunsListItem from "./AlbunsListItem";
+import { useFetchAlbumsQuery } from "../store";
 
 interface AlbunsListInt {
     user: User;
 }
 
 const AlbunsList: FC<AlbunsListInt> = ({ user }) => {
-    const AlbumsList: any[] = [];
-    let content = AlbumsList.map((album) => (
-        <AlbunsListItem key={album.key} user={user} />
-    ));
-
+    const { data, error, isLoading } = useFetchAlbumsQuery(user);
+    console.log(data, error, isLoading);
     return (
         <>
             <div>Albums from {user.name}:</div>

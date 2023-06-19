@@ -1,26 +1,36 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "Myra"
-    },
-    {
-      "name": "Jeffrey Hackett",
-      "id": 2
-    },
-    {
-      "name": "Kendra Franecki",
-      "id": 3
-    },
-    {
-      "name": "Darla Adams III",
-      "id": 4
-    },
-    {
-      "name": "Jamie Swift",
-      "id": 5
-    }
-  ],
-  "albums": [],
-  "photos": []
+    "users": [
+        {
+            "id": 1,
+            "name": "Myra"
+        },
+        {
+            "name": "Jeffrey Hackett",
+            "id": 2
+        },
+        {
+            "name": "Kendra Franecki",
+            "id": 3
+        },
+        {
+            "name": "Darla Adams III",
+            "id": 4
+        },
+        {
+            "name": "Jamie Swift",
+            "id": 5
+        },
+        {
+            "name": "Andre Erdman",
+            "id": 6
+        }
+    ],
+    "albums": [
+        {
+            "id": 1,
+            "title": "Hiking Trip",
+            "userId": 1
+        }
+    ],
+    "photos": []
 }
