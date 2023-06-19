@@ -5,53 +5,39 @@
       "name": "Myra"
     },
     {
-      "name": "Jeffrey Hackett",
-      "id": 2
-    },
-    {
-      "name": "Kendra Franecki",
-      "id": 3
-    },
-    {
       "name": "Darla Adams III",
       "id": 4
     },
     {
       "name": "Jamie Swift",
       "id": 5
-    }
-  ],
-  "albums": [
-    {
-      "userId": 1,
-      "title": "Small Wooden Chicken",
-      "id": 2
     },
     {
-      "userId": 1,
-      "title": "Ergonomic Soft Tuna",
-      "id": 3
+      "name": "Antonia Gibson",
+      "id": 6
     },
     {
-      "userId": 1,
-      "title": "Incredible Granite Bike",
-      "id": 4
+      "name": "Megan Willms",
+      "id": 7
     },
     {
-      "userId": 3,
-      "title": "Intelligent Wooden Chips",
+      "name": "Margarita Kuhic",
+      "id": 8
+    },
+    {
+      "name": "Jodi Labadie IV",
       "id": 9
     },
     {
-      "userId": 3,
-      "title": "Refined Rubber Pizza",
+      "name": "Ms. Meredith Kiehn",
       "id": 10
     },
     {
-      "userId": 3,
-      "title": "Intelligent Steel Fish",
+      "name": "Dianna Kunde",
       "id": 11
-    },
+    }
+  ],
+  "albums": [
     {
       "userId": 4,
       "title": "Handmade Granite Bike",
@@ -63,34 +49,24 @@
       "id": 13
     },
     {
-      "userId": 2,
-      "title": "Oriental Metal Computer",
+      "userId": 5,
+      "title": "Ergonomic Rubber Shoes",
       "id": 14
     },
     {
-      "userId": 2,
-      "title": "Refined Metal Chips",
+      "userId": 1,
+      "title": "Gorgeous Wooden Fish",
       "id": 15
     },
     {
-      "userId": 2,
-      "title": "Fantastic Frozen Chips",
+      "userId": 1,
+      "title": "Ergonomic Rubber Sausages",
       "id": 16
     },
     {
-      "userId": 2,
-      "title": "Luxurious Soft Chicken",
+      "userId": 1,
+      "title": "Practical Wooden Mouse",
       "id": 17
-    },
-    {
-      "userId": 2,
-      "title": "Rustic Bronze Tuna",
-      "id": 18
-    },
-    {
-      "userId": 2,
-      "title": "Fantastic Metal Bike",
-      "id": 19
     }
   ],
   "photos": []

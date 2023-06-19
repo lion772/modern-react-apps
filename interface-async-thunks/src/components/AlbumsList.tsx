@@ -12,11 +12,11 @@ interface AlbumsListInt {
 }
 
 const AlbumsList: FC<AlbumsListInt> = ({ user }) => {
-    const { data, error, isLoading } = useFetchAlbumsQuery(user);
+    const { data, error, isFetching } = useFetchAlbumsQuery(user);
     const [addAlbum, result] = useAddAlbumMutation();
 
     let content: any;
-    if (isLoading) {
+    if (isFetching) {
         content = <Skeleton times={4} className="h-4 w-full" />;
     } else if (error) {
         content = <p>Couldn't fetch albums</p>;

@@ -11,7 +11,7 @@ interface AlbumsListItemInt {
 
 const AlbumsListItem: FC<AlbumsListItemInt> = ({ album }) => {
     const [removeAlbum, result] = useRemoveAlbumMutation();
-    console.log(result);
+
     const header = (
         <>
             <Button
