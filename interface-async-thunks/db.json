@@ -1,36 +1,106 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "Myra"
-        },
-        {
-            "name": "Jeffrey Hackett",
-            "id": 2
-        },
-        {
-            "name": "Kendra Franecki",
-            "id": 3
-        },
-        {
-            "name": "Darla Adams III",
-            "id": 4
-        },
-        {
-            "name": "Jamie Swift",
-            "id": 5
-        },
-        {
-            "name": "Andre Erdman",
-            "id": 6
-        }
-    ],
-    "albums": [
-        {
-            "id": 1,
-            "title": "Hiking Trip",
-            "userId": 1
-        }
-    ],
-    "photos": []
+  "users": [
+    {
+      "id": 1,
+      "name": "Myra"
+    },
+    {
+      "name": "Jeffrey Hackett",
+      "id": 2
+    },
+    {
+      "name": "Kendra Franecki",
+      "id": 3
+    },
+    {
+      "name": "Darla Adams III",
+      "id": 4
+    },
+    {
+      "name": "Jamie Swift",
+      "id": 5
+    },
+    {
+      "name": "Andre Erdman",
+      "id": 6
+    }
+  ],
+  "albums": [
+    {
+      "id": 1,
+      "title": "Hiking Trip",
+      "userId": 1
+    },
+    {
+      "userId": 1,
+      "title": "Small Wooden Chicken",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "title": "Ergonomic Soft Tuna",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "title": "Incredible Granite Bike",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "title": "Modern Wooden Pizza",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "title": "Small Wooden Sausages",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "title": "Modern Metal Sausages",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "title": "Awesome Metal Cheese",
+      "id": 8
+    },
+    {
+      "userId": 3,
+      "title": "Intelligent Wooden Chips",
+      "id": 9
+    },
+    {
+      "userId": 3,
+      "title": "Refined Rubber Pizza",
+      "id": 10
+    },
+    {
+      "userId": 3,
+      "title": "Intelligent Steel Fish",
+      "id": 11
+    },
+    {
+      "userId": 4,
+      "title": "Handmade Granite Bike",
+      "id": 12
+    },
+    {
+      "userId": 4,
+      "title": "Ergonomic Rubber Ball",
+      "id": 13
+    },
+    {
+      "userId": 2,
+      "title": "Oriental Metal Computer",
+      "id": 14
+    },
+    {
+      "userId": 2,
+      "title": "Refined Metal Chips",
+      "id": 15
+    }
+  ],
+  "photos": []
 }
