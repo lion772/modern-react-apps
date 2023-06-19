@@ -5,7 +5,7 @@ import Button from "./Button";
 import { removeUser } from "../store";
 import useThunk from "../hook/useThunk";
 import ExpandablePanel from "./ExpandablePanel";
-import AlbunsList from "./AlbunsList";
+import AlbunsList from "./AlbumsList";
 
 interface UsersListItemInt {
     user: User;

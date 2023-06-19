@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { User } from "./User";
 
-interface AlbunsListItemInt {
+interface AlbumsListItemInt {
     user: User;
 }
 
-const AlbunsList: FC<AlbunsListItemInt> = () => {
+const AlbumsList: FC<AlbumsListItemInt> = () => {
     return (
         <>
             <div>Albums list item</div>
@@ -13,4 +13,4 @@ const AlbunsList: FC<AlbunsListItemInt> = () => {
     );
 };
 
-export default AlbunsList;
+export default AlbumsList;
