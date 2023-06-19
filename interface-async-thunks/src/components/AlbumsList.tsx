@@ -5,6 +5,7 @@ import Skeleton from "./Skeleton";
 import { Album } from "./Album";
 import ExpandablePanel from "./ExpandablePanel";
 import Button from "./Button";
+import AlbumsListItem from "./AlbumsListItem";
 
 interface AlbumsListInt {
     user: User;
@@ -21,9 +22,7 @@ const AlbumsList: FC<AlbumsListInt> = ({ user }) => {
         content = <p>Couldn't fetch albums</p>;
     } else {
         content = (data as Album[]).map((album: Album) => (
-            <ExpandablePanel key={album.id} header={album.title}>
-                <div>List of photos in the album go here</div>
-            </ExpandablePanel>
+            <AlbumsListItem key={album.id} album={album} />
         ));
     }
     return (

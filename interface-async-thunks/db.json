@@ -19,18 +19,9 @@
     {
       "name": "Jamie Swift",
       "id": 5
-    },
-    {
-      "name": "Andre Erdman",
-      "id": 6
     }
   ],
   "albums": [
-    {
-      "id": 1,
-      "title": "Hiking Trip",
-      "userId": 1
-    },
     {
       "userId": 1,
       "title": "Small Wooden Chicken",
@@ -45,26 +36,6 @@
       "userId": 1,
       "title": "Incredible Granite Bike",
       "id": 4
-    },
-    {
-      "userId": 1,
-      "title": "Modern Wooden Pizza",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "title": "Small Wooden Sausages",
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "title": "Modern Metal Sausages",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "title": "Awesome Metal Cheese",
-      "id": 8
     },
     {
       "userId": 3,
