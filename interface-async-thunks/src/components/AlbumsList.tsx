@@ -3,7 +3,6 @@ import { User } from "./User";
 import { useAddAlbumMutation, useFetchAlbumsQuery } from "../store";
 import Skeleton from "./Skeleton";
 import { Album } from "./Album";
-import ExpandablePanel from "./ExpandablePanel";
 import Button from "./Button";
 import AlbumsListItem from "./AlbumsListItem";
 

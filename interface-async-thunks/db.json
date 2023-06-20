@@ -1,73 +1,79 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "Myra"
-    },
-    {
-      "name": "Darla Adams III",
-      "id": 4
-    },
-    {
-      "name": "Jamie Swift",
-      "id": 5
-    },
-    {
-      "name": "Antonia Gibson",
-      "id": 6
-    },
-    {
-      "name": "Megan Willms",
-      "id": 7
-    },
-    {
-      "name": "Margarita Kuhic",
-      "id": 8
-    },
-    {
-      "name": "Jodi Labadie IV",
-      "id": 9
-    },
-    {
-      "name": "Ms. Meredith Kiehn",
-      "id": 10
-    },
-    {
-      "name": "Dianna Kunde",
-      "id": 11
-    }
-  ],
-  "albums": [
-    {
-      "userId": 4,
-      "title": "Handmade Granite Bike",
-      "id": 12
-    },
-    {
-      "userId": 4,
-      "title": "Ergonomic Rubber Ball",
-      "id": 13
-    },
-    {
-      "userId": 5,
-      "title": "Ergonomic Rubber Shoes",
-      "id": 14
-    },
-    {
-      "userId": 1,
-      "title": "Gorgeous Wooden Fish",
-      "id": 15
-    },
-    {
-      "userId": 1,
-      "title": "Ergonomic Rubber Sausages",
-      "id": 16
-    },
-    {
-      "userId": 1,
-      "title": "Practical Wooden Mouse",
-      "id": 17
-    }
-  ],
-  "photos": []
+    "users": [
+        {
+            "id": 1,
+            "name": "Myra"
+        },
+        {
+            "name": "Darla Adams III",
+            "id": 4
+        },
+        {
+            "name": "Jamie Swift",
+            "id": 5
+        },
+        {
+            "name": "Antonia Gibson",
+            "id": 6
+        },
+        {
+            "name": "Megan Willms",
+            "id": 7
+        },
+        {
+            "name": "Margarita Kuhic",
+            "id": 8
+        },
+        {
+            "name": "Jodi Labadie IV",
+            "id": 9
+        },
+        {
+            "name": "Ms. Meredith Kiehn",
+            "id": 10
+        },
+        {
+            "name": "Dianna Kunde",
+            "id": 11
+        }
+    ],
+    "albums": [
+        {
+            "userId": 4,
+            "title": "Handmade Granite Bike",
+            "id": 12
+        },
+        {
+            "userId": 4,
+            "title": "Ergonomic Rubber Ball",
+            "id": 13
+        },
+        {
+            "userId": 5,
+            "title": "Ergonomic Rubber Shoes",
+            "id": 14
+        },
+        {
+            "userId": 1,
+            "title": "Gorgeous Wooden Fish",
+            "id": 15
+        },
+        {
+            "userId": 1,
+            "title": "Ergonomic Rubber Sausages",
+            "id": 16
+        },
+        {
+            "userId": 1,
+            "title": "Practical Wooden Mouse",
+            "id": 17
+        }
+    ],
+    "photos": [
+        {
+            "albumId": 15,
+            "url": "https://picsum.photos/536/354",
+            "id": 1
+        }
+    ]
 }
