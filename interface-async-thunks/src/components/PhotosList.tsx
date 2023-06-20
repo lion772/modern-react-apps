@@ -1,15 +1,18 @@
 import { FC } from "react";
 import { Album } from "./Album";
-import { useFetchPhotosQuery } from "../store";
+import { useAddPhotoMutation, useFetchPhotosQuery } from "../store";
 import Skeleton from "./Skeleton";
 import { Photo } from "./Photo";
+import PhotosListItem from "./PhotosListItem";
+import Button from "./Button";
 
 interface PhotosListInt {
     album: Album;
 }
 const PhotosList: FC<PhotosListInt> = ({ album }) => {
     const { data, error, isFetching } = useFetchPhotosQuery(album);
-    console.log(data);
+    const [addPhoto, result] = useAddPhotoMutation();
+    console.log(result);
 
     let content: any = <></>;
     if (isFetching) {
@@ -18,12 +21,25 @@ const PhotosList: FC<PhotosListInt> = ({ album }) => {
         content = <p>Couldn't fetch photos related to this album</p>;
     } else {
         content = (data as Photo[]).map((photo: Photo) => (
-            <div key={photo.id}>
-                <img src={photo.url} alt={photo.id} />
-            </div>
+            <PhotosListItem key={photo.id} photo={photo} />
         ));
     }
-    return <>{content}</>;
+    return (
+        <div>
+            <div className="m-2 flex flex-row items-center justify-between">
+                <h3 className="text-lg font-bold">Photos In {album.title}</h3>
+                <Button
+                    loading={result.isLoading}
+                    onClick={() => addPhoto(album)}
+                >
+                    + Add Photo
+                </Button>
+            </div>
+            <div className="mx-8 flex flex-row flex-wrap justify-center">
+                {content}
+            </div>
+        </div>
+    );
 };
 
 export default PhotosList;

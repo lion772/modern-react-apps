@@ -11,10 +11,9 @@ export const store = configureStore({
         [photosApi.reducerPath]: photosApi.reducer,
     },
     middleware: () =>
-        getDefaultMiddleware().concat(
-            albumsApi.middleware,
-            photosApi.middleware
-        ),
+        getDefaultMiddleware()
+            .concat(albumsApi.middleware)
+            .concat(photosApi.middleware),
 });
 
 setupListeners(store.dispatch);

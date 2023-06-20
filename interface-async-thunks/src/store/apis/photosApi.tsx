@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { faker } from "@faker-js/faker";
-import { User } from "../../components/User";
 import { Album } from "../../components/Album";
 import { Photo } from "../../components/Photo";
 
@@ -25,15 +24,15 @@ const photosApi = createApi({
             }),
         }),
         addPhoto: builder.mutation({
-            invalidatesTags: (result: Photo[], error: any, album: Album) => [
-                { type: "PhotosAlbums", id: album.id },
-            ],
+            invalidatesTags: (result: Photo[], error: any, album: Album) => {
+                return [{ type: "PhotosAlbums", id: album.id }];
+            },
             query: (album: { id: string }) => ({
                 url: "/photos",
                 method: "POST",
                 body: {
                     albumId: album.id,
-                    url: faker.image.url(),
+                    url: "https://images.unsplash.com/photo-1682687982423-295485af248a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
                 },
             }),
         }),
@@ -41,8 +40,8 @@ const photosApi = createApi({
             invalidatesTags: (result: Photo[], error: any, photo: Photo) => {
                 return [{ type: "Photo", id: photo.id }];
             },
-            query: (album: { id: string }) => ({
-                url: `/albums/${album.id}`,
+            query: (photo: { id: string }) => ({
+                url: `/photos/${photo.id}`,
                 method: "DELETE",
             }),
         }),
