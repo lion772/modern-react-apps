@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { faker } from "@faker-js/faker";
 import { Album } from "../../components/Album";
 import { Photo } from "../../components/Photo";
 

@@ -12,11 +12,10 @@ interface PhotosListInt {
 const PhotosList: FC<PhotosListInt> = ({ album }) => {
     const { data, error, isFetching } = useFetchPhotosQuery(album);
     const [addPhoto, result] = useAddPhotoMutation();
-    console.log(result);
 
     let content: any = <></>;
     if (isFetching) {
-        content = <Skeleton times={4} className="h-4 w-full"></Skeleton>;
+        content = <Skeleton times={4} className="h-8 w-8" />;
     } else if (error) {
         content = <p>Couldn't fetch photos related to this album</p>;
     } else {
